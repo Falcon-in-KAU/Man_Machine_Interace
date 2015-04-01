@@ -16,7 +16,8 @@
 #include <malloc.h>
 #include <memory.h>
 #include <tchar.h>
+#include <stdio.h>
 
 #include "Avionics.h"
-
+#include "MMI_Opengl_Window.h"
 // TODO: 프로그램에 필요한 추가 헤더는 여기에서 참조합니다.

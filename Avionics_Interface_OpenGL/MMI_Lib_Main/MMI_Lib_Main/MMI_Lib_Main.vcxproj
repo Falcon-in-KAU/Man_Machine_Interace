@@ -83,12 +83,14 @@
   <ItemGroup>
     <ClInclude Include="Avionics.h" />
     <ClInclude Include="MMI_Lib_Main.h" />
+    <ClInclude Include="MMI_Opengl_Window.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MMI_Lib_Main.cpp" />
+    <ClCompile Include="MMI_Opengl_Window.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
