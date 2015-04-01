@@ -40,16 +40,17 @@ int MMI_OPENGL_WINDOW::DrawGL()//DATA_POSITION *Position,DATA_ATTITUDES *Attitud
 	glLoadIdentity(); //Reset the drawing perspective
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glScalef(0.35,0.35,0.35);
-	glTranslatef(0,0.8,0);
+	glTranslatef(0,0,0);
 	glPushMatrix();
-	glColor3f(0.0,1,0.0);
+	
 	
 	glPopMatrix();
 	return 0;
 }
 
-LRESULT CALLBACK OPENGL_WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
+LRESULT CALLBACK MMI_OPENGL_WINDOW::OPENGL_WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam, void *callbackData)
 {
+	MMI_OPENGL_WINDOW *OPENGL_WINDOW_CALLBACK = (MMI_OPENGL_WINDOW *)callbackData;
 	int wmId, wmEvent;
 	PAINTSTRUCT ps;
 	HDC hdc;
@@ -62,7 +63,7 @@ LRESULT CALLBACK OPENGL_WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM l
 		SendMessage(hWnd,WM_TIMER,OPENGL_TIMER,0);
 		printf("Opengl Window Activated\r\n");
 		break;
-
+		
 	case WM_ACTIVATE:
 	/*	if (!HIWORD(wParam))
 			active = TRUE;
@@ -125,10 +126,10 @@ BOOL MMI_OPENGL_WINDOW::CreateGLWinodow(char *title, int w, int h, HWND Parent_h
 	WindowRect.right = (long)w;			// Set Right Value To Requested Width
 	WindowRect.top   = (long)0;			// Set Top Value To 0
 	WindowRect.bottom= (long)h;			// Set Bottom Value To Requested Height
-
+	
 	OPENGL_hInstance			= GetModuleHandle(NULL);				// Grab An Instance For Our Window
 	wc.style			= CS_HREDRAW | CS_VREDRAW | CS_OWNDC;	// Redraw On Size, And Own DC For Window.
-	wc.lpfnWndProc		= (WNDPROC) OPENGL_WndProc;					// WndProc Handles Messages
+	wc.lpfnWndProc		= (WNDPROC)MMI_OPENGL_WINDOW::OPENGL_WndProc;					// WndProc Handles Messages
 	wc.cbClsExtra		= 0;									// No Extra Window Data
 	wc.cbWndExtra		= 0;									// No Extra Window Data
 	wc.hInstance		= OPENGL_hInstance;							// Set The Instance

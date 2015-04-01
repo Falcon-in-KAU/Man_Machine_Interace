@@ -1,14 +1,12 @@
-﻿빌드 시작: 2015-04-02 오전 8:09:32
+﻿빌드 시작: 2015-04-02 오전 8:32:00
      1>2 노드의 "C:\Users\s_vettel_desk\Desktop\대학원강의\항공우주임베디드\Man_Machine_Interace\Avionics_Interface_OpenGL\MMI_Lib_Main\MMI_Lib_Main\MMI_Lib_Main.vcxproj" 프로젝트(build 대상)입니다.
      1>InitializeBuildStatus:
          "AlwaysCreate"이(가) 지정되었기 때문에 "Debug\MMI_Lib_Main.unsuccessfulbuild"을(를) 만들고 있습니다.
        ClCompile:
          모든 출력이 최신 상태입니다.
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\MMI_Lib_Main.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt MMI_Lib_Main.cpp MMI_Opengl_Window.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\MMI_Lib_Main.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt MMI_Opengl_Window.cpp
          MMI_Opengl_Window.cpp
-     1>c:\users\s_vettel_desk\desktop\대학원강의\항공우주임베디드\man_machine_interace\avionics_interface_opengl\mmi_lib_main\mmi_lib_main\mmi_opengl_window.cpp(56): warning C4101: 'Display' :참조되지 않은 지역 변수입니다.
-         MMI_Lib_Main.cpp
-         코드를 생성하고 있습니다...
+     1>c:\users\s_vettel_desk\desktop\대학원강의\항공우주임베디드\man_machine_interace\avionics_interface_opengl\mmi_lib_main\mmi_lib_main\mmi_opengl_window.cpp(57): warning C4101: 'Display' :참조되지 않은 지역 변수입니다.
        ResourceCompile:
          모든 출력이 최신 상태입니다.
        ManifestResourceCompile:
@@ -32,4 +30,4 @@
 
 빌드했습니다.
 
-경과 시간: 00:00:00.40
+경과 시간: 00:00:00.51

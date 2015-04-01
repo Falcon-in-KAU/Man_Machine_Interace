@@ -5,7 +5,7 @@
 #include <GLAUX.H>
 #include <GLU.H>
 #include <glut.h>
-LRESULT CALLBACK MMI_OPENGL_WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
+//LRESULT CALLBACK MMI_OPENGL_WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
 #define OPENGL_TIMER 33
 #define OPENGL_LOOP_TIME	10
@@ -17,6 +17,7 @@ public:
 	HWND		OPENGL_hWnd;
 	HINSTANCE	OPENGL_hInstance;
 
+	static LRESULT CALLBACK OPENGL_WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam, void *callbackData);
 public:
 	GLvoid ResizeGL(GLsizei w, GLsizei h);
 	GLint InitGL(GLvoid);
