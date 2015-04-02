@@ -16,8 +16,9 @@ public:
 	HGLRC		OPENGL_hRC;
 	HWND		OPENGL_hWnd;
 	HINSTANCE	OPENGL_hInstance;
-
-	static LRESULT CALLBACK OPENGL_WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam, void *callbackData);
+	LPARAM		OPENGL_CALLBACK_LPARAM;
+	static LRESULT CALLBACK OPENGL_WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam, void *CallbackData);
+	//LRESULT CALLBACK OPENGL_WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam, LPARAM OPENGL_CALLBACK_LPARAM);
 public:
 	GLvoid ResizeGL(GLsizei w, GLsizei h);
 	GLint InitGL(GLvoid);

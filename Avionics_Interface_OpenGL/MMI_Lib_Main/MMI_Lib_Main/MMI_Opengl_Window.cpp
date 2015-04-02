@@ -48,20 +48,21 @@ int MMI_OPENGL_WINDOW::DrawGL()//DATA_POSITION *Position,DATA_ATTITUDES *Attitud
 	return 0;
 }
 
-LRESULT CALLBACK MMI_OPENGL_WINDOW::OPENGL_WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam, void *callbackData)
+LRESULT CALLBACK MMI_OPENGL_WINDOW::OPENGL_WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam, void *CallbackData)
 {
-	MMI_OPENGL_WINDOW *OPENGL_WINDOW_CALLBACK = (MMI_OPENGL_WINDOW *)callbackData;
+	MMI_OPENGL_WINDOW *this_Callback = reinterpret_cast<MMI_OPENGL_WINDOW*>(CallbackData);
 	int wmId, wmEvent;
 	PAINTSTRUCT ps;
 	HDC hdc;
-	MMI_OPENGL_WINDOW Display;
+
 	switch (message)
 	{
 		// cloud add {
 	case WM_CREATE:
 		SetTimer(hWnd, OPENGL_TIMER, OPENGL_LOOP_TIME, NULL);
 		SendMessage(hWnd,WM_TIMER,OPENGL_TIMER,0);
-		printf("Opengl Window Activated\r\n");
+		
+		//printf("Opengl Window Activated\r\n");
 		break;
 		
 	case WM_ACTIVATE:
@@ -83,7 +84,14 @@ LRESULT CALLBACK MMI_OPENGL_WINDOW::OPENGL_WndProc(HWND hWnd, UINT message, WPAR
 		switch(wParam)
 		{
 			case OPENGL_TIMER:
-
+			if(this_Callback->OPENGL_hRC = wglCreateContext(this_Callback->OPENGL_hDC))
+			{
+				if(wglMakeCurrent(this_Callback->OPENGL_hDC,this_Callback->OPENGL_hRC))
+				{
+					this_Callback->DrawGL();
+					SwapBuffers(this_Callback->OPENGL_hDC);
+				}
+			}
 		
 			break;			
 		}
@@ -129,7 +137,7 @@ BOOL MMI_OPENGL_WINDOW::CreateGLWinodow(char *title, int w, int h, HWND Parent_h
 	
 	OPENGL_hInstance			= GetModuleHandle(NULL);				// Grab An Instance For Our Window
 	wc.style			= CS_HREDRAW | CS_VREDRAW | CS_OWNDC;	// Redraw On Size, And Own DC For Window.
-	wc.lpfnWndProc		= (WNDPROC)MMI_OPENGL_WINDOW::OPENGL_WndProc;					// WndProc Handles Messages
+	wc.lpfnWndProc		= (WNDPROC)OPENGL_WndProc;					// WndProc Handles Messages
 	wc.cbClsExtra		= 0;									// No Extra Window Data
 	wc.cbWndExtra		= 0;									// No Extra Window Data
 	wc.hInstance		= OPENGL_hInstance;							// Set The Instance
