@@ -124,7 +124,15 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		switch(wParam)
 		{
 		case MAIN_TIMER_ID:
-			
+			if(MMI_OpenGL_Window.OPENGL_hRC = wglCreateContext(MMI_OpenGL_Window.OPENGL_hDC))
+			{
+				if(wglMakeCurrent(MMI_OpenGL_Window.OPENGL_hDC,MMI_OpenGL_Window.OPENGL_hRC))
+				{
+					MMI_OpenGL_Window.DrawGL();
+
+					SwapBuffers(MMI_OpenGL_Window.OPENGL_hDC);
+				}
+			}
 			break;
 		}
 		

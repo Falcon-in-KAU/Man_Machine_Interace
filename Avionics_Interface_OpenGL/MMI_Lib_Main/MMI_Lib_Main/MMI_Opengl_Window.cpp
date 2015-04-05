@@ -2,6 +2,11 @@
 //#include "HUD.h"
 
 
+MMI_OPENGL_WINDOW::MMI_OPENGL_WINDOW():MMI_OPENGL_HUD()
+{
+	memset(&this->HUD_Data,0,sizeof(this->HUD_Data));
+	return;
+}
 
 GLvoid MMI_OPENGL_WINDOW::ResizeGL(GLsizei w, GLsizei h)
 {
@@ -42,7 +47,7 @@ int MMI_OPENGL_WINDOW::DrawGL()//DATA_POSITION *Position,DATA_ATTITUDES *Attitud
 	glScalef(0.35,0.35,0.35);
 	glTranslatef(0,0,0);
 	glPushMatrix();
-	
+	MMI_OPENGL_HUD::drawGunCross(0,0,1,1);
 	
 	glPopMatrix();
 	return 0;
@@ -84,14 +89,7 @@ LRESULT CALLBACK MMI_OPENGL_WINDOW::OPENGL_WndProc(HWND hWnd, UINT message, WPAR
 		switch(wParam)
 		{
 			case OPENGL_TIMER:
-			if(this_Callback->OPENGL_hRC = wglCreateContext(this_Callback->OPENGL_hDC))
-			{
-				if(wglMakeCurrent(this_Callback->OPENGL_hDC,this_Callback->OPENGL_hRC))
-				{
-					this_Callback->DrawGL();
-					SwapBuffers(this_Callback->OPENGL_hDC);
-				}
-			}
+			
 		
 			break;			
 		}
@@ -146,12 +144,12 @@ BOOL MMI_OPENGL_WINDOW::CreateGLWinodow(char *title, int w, int h, HWND Parent_h
 	wc.hbrBackground	= NULL;									// No Background Required For GL
 	wc.lpszMenuName		= NULL;									// We Don't Want A Menu
 	wc.lpszClassName	= "OpenGL";								// Set The Class Name
-
 	if (!RegisterClass(&wc))									// Attempt To Register The Window Class
 	{
 		MessageBox(NULL,"Failed To Register The Window Class.","ERROR",MB_OK|MB_ICONEXCLAMATION);
 		return FALSE;											// Return FALSE
 	}
+	
 
 	dwExStyle = WS_EX_APPWINDOW | WS_EX_WINDOWEDGE |WS_EX_DLGMODALFRAME;			// Window Extended Style
 	dwStyle = WS_CHILDWINDOW;							// Windows Style

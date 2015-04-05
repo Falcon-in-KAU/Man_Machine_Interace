@@ -1,13 +1,14 @@
-﻿빌드 시작: 2015-04-02 오전 10:41:03
+﻿빌드 시작: 2015-04-06 오전 12:35:20
      1>2 노드의 "C:\Users\s_vettel_desk\Desktop\대학원강의\항공우주임베디드\Man_Machine_Interace\Avionics_Interface_OpenGL\MMI_Lib_Main\MMI_Lib_Main\MMI_Lib_Main.vcxproj" 프로젝트(build 대상)입니다.
      1>InitializeBuildStatus:
          "AlwaysCreate"이(가) 지정되었기 때문에 "Debug\MMI_Lib_Main.unsuccessfulbuild"을(를) 만들고 있습니다.
        ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"StdAfx.h" /Fp"Debug\MMI_Lib_Main.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
-         stdafx.cpp
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\MMI_Lib_Main.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt MMI_Lib_Main.cpp MMI_Opengl_Window.cpp
-         건너뛰고 있습니다... (관련된 변경 내용 없음)
+         모든 출력이 최신 상태입니다.
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\MMI_Lib_Main.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt MMI_Lib_Main.cpp MMI_Opengl_HUD.cpp MMI_Opengl_Window.cpp
          MMI_Opengl_Window.cpp
+         코드를 생성하고 있습니다...
+         건너뛰고 있습니다... (관련된 변경 내용 없음)
+         MMI_Opengl_HUD.cpp
          MMI_Lib_Main.cpp
        ResourceCompile:
          모든 출력이 최신 상태입니다.
@@ -17,6 +18,7 @@
          C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\s_vettel_desk\Desktop\대학원강의\항공우주임베디드\Man_Machine_Interace\Avionics_Interface_OpenGL\MMI_Lib_Main\Debug\MMI_Lib_Main.exe" /INCREMENTAL /NOLOGO opengl32.lib glu32.lib glut32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\MMI_Lib_Main.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\s_vettel_desk\Desktop\대학원강의\항공우주임베디드\Man_Machine_Interace\Avionics_Interface_OpenGL\MMI_Lib_Main\Debug\MMI_Lib_Main.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\s_vettel_desk\Desktop\대학원강의\항공우주임베디드\Man_Machine_Interace\Avionics_Interface_OpenGL\MMI_Lib_Main\Debug\MMI_Lib_Main.lib" /MACHINE:X86 Debug\MMI_Lib_Main.res
          Debug\MMI_Lib_Main.exe.embed.manifest.res
          Debug\MMI_Lib_Main.obj
+         Debug\MMI_Opengl_HUD.obj
          Debug\MMI_Opengl_Window.obj
          Debug\stdafx.obj
        Manifest:
@@ -32,4 +34,4 @@
 
 빌드했습니다.
 
-경과 시간: 00:00:00.69
+경과 시간: 00:00:00.42

@@ -42,6 +42,9 @@
     <ClInclude Include="MMI_Opengl_Window.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="MMI_Opengl_HUD.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -51,6 +54,9 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="MMI_Opengl_Window.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="MMI_Opengl_HUD.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
