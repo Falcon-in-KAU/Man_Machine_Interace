@@ -23,9 +23,12 @@
 #include <GLAUX.H>
 #include <GLU.H>
 #include <glut.h>
-
+#include <math.h>
 
 #include "Avionics.h"
 #include "MMI_Opengl_Window.h"
 //#include "MMI_Opengl_HUD.h"
+
+#define WINDOW_SIZE_X	1366
+#define WINDOW_SIZE_Y	768
 // TODO: 프로그램에 필요한 추가 헤더는 여기에서 참조합니다.

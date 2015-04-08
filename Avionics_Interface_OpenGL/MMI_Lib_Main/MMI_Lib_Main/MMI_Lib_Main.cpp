@@ -52,7 +52,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	}
 
 	hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_MMI_LIB_MAIN));
-	MMI_OpenGL_Window.CreateGLWinodow("MMI_Lib",1366,768,hWnd);
+	MMI_OpenGL_Window.CreateGLWinodow("MMI_Lib",WINDOW_SIZE_X,WINDOW_SIZE_Y,hWnd);
 	// 기본 메시지 루프입니다.
 	while (GetMessage(&msg, NULL, 0, 0))
 	{
@@ -124,6 +124,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		switch(wParam)
 		{
 		case MAIN_TIMER_ID:
+			/*
 			if(MMI_OpenGL_Window.OPENGL_hRC = wglCreateContext(MMI_OpenGL_Window.OPENGL_hDC))
 			{
 				if(wglMakeCurrent(MMI_OpenGL_Window.OPENGL_hDC,MMI_OpenGL_Window.OPENGL_hRC))
@@ -132,7 +133,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
 					SwapBuffers(MMI_OpenGL_Window.OPENGL_hDC);
 				}
-			}
+			}*/
 			break;
 		}
 		

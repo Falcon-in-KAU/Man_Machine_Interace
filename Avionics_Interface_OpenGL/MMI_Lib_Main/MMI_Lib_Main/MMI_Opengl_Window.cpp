@@ -1,11 +1,11 @@
 #include "stdafx.h"
 //#include "HUD.h"
 
+MMI_OPENGL_WINDOW* MMI_OPENGL_WINDOW::_This;
 
 MMI_OPENGL_WINDOW::MMI_OPENGL_WINDOW():MMI_OPENGL_HUD()
 {
-	memset(&this->HUD_Data,0,sizeof(this->HUD_Data));
-	return;
+	
 }
 
 GLvoid MMI_OPENGL_WINDOW::ResizeGL(GLsizei w, GLsizei h)
@@ -47,19 +47,20 @@ int MMI_OPENGL_WINDOW::DrawGL()//DATA_POSITION *Position,DATA_ATTITUDES *Attitud
 	glScalef(0.35,0.35,0.35);
 	glTranslatef(0,0,0);
 	glPushMatrix();
-	MMI_OPENGL_HUD::drawGunCross(0,0,1,1);
+	MMI_OPENGL_HUD::drawGunCross(0,0,0.05,0.05*WINDOW_SIZE_X/WINDOW_SIZE_Y);
+
 	
 	glPopMatrix();
 	return 0;
 }
 
+extern MMI_OPENGL_WINDOW MMI_OpenGL_Window;
 LRESULT CALLBACK MMI_OPENGL_WINDOW::OPENGL_WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam, void *CallbackData)
 {
-	MMI_OPENGL_WINDOW *this_Callback = reinterpret_cast<MMI_OPENGL_WINDOW*>(CallbackData);
 	int wmId, wmEvent;
 	PAINTSTRUCT ps;
 	HDC hdc;
-
+	
 	switch (message)
 	{
 		// cloud add {
@@ -71,11 +72,7 @@ LRESULT CALLBACK MMI_OPENGL_WINDOW::OPENGL_WndProc(HWND hWnd, UINT message, WPAR
 		break;
 		
 	case WM_ACTIVATE:
-	/*	if (!HIWORD(wParam))
-			active = TRUE;
-		else
-			active = FALSE;
-		break;*/
+
 		break;
 	case WM_SIZE:
 		//Display.ResizeGL(LOWORD(lParam), HIWORD(lParam));
@@ -90,6 +87,16 @@ LRESULT CALLBACK MMI_OPENGL_WINDOW::OPENGL_WndProc(HWND hWnd, UINT message, WPAR
 		{
 			case OPENGL_TIMER:
 			
+			
+			if(MMI_OpenGL_Window.OPENGL_hRC = wglCreateContext(MMI_OpenGL_Window.OPENGL_hDC))
+			{
+				if(wglMakeCurrent(MMI_OpenGL_Window.OPENGL_hDC,MMI_OpenGL_Window.OPENGL_hRC))
+				{
+					MMI_OpenGL_Window.DrawGL();
+
+					SwapBuffers(MMI_OpenGL_Window.OPENGL_hDC);
+				}
+			}
 		
 			break;			
 		}
@@ -135,7 +142,7 @@ BOOL MMI_OPENGL_WINDOW::CreateGLWinodow(char *title, int w, int h, HWND Parent_h
 	
 	OPENGL_hInstance			= GetModuleHandle(NULL);				// Grab An Instance For Our Window
 	wc.style			= CS_HREDRAW | CS_VREDRAW | CS_OWNDC;	// Redraw On Size, And Own DC For Window.
-	wc.lpfnWndProc		= (WNDPROC)OPENGL_WndProc;					// WndProc Handles Messages
+	wc.lpfnWndProc		= (WNDPROC)(OPENGL_WndProc);					// WndProc Handles Messages
 	wc.cbClsExtra		= 0;									// No Extra Window Data
 	wc.cbWndExtra		= 0;									// No Extra Window Data
 	wc.hInstance		= OPENGL_hInstance;							// Set The Instance
@@ -234,7 +241,7 @@ BOOL MMI_OPENGL_WINDOW::CreateGLWinodow(char *title, int w, int h, HWND Parent_h
 	ShowWindow(OPENGL_hWnd,SW_SHOW);						// Show The Window
 	SetForegroundWindow(OPENGL_hWnd);						// Slightly Higher Priority
 	SetFocus(OPENGL_hWnd);									// Sets Keyboard Focus To The Window
-	ResizeGL(w,h);
+	
 	//InitGL();
 	if (!InitGL())									// Initialize Our Newly Created GL Window
 	{
@@ -245,6 +252,6 @@ BOOL MMI_OPENGL_WINDOW::CreateGLWinodow(char *title, int w, int h, HWND Parent_h
 	}
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);	
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	
+	ResizeGL(w,h);
 	return true;
 }

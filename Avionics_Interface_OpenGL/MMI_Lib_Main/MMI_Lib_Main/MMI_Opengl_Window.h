@@ -15,8 +15,9 @@ public:
 	HINSTANCE	OPENGL_hInstance;
 	LPARAM		OPENGL_CALLBACK_LPARAM;
 private :
-	static LRESULT CALLBACK OPENGL_WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam, void *CallbackData);
-	//LRESULT CALLBACK OPENGL_WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam, LPARAM OPENGL_CALLBACK_LPARAM);
+	static LRESULT CALLBACK OPENGL_WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam, void *Callback);
+	static MMI_OPENGL_WINDOW *_This;
+	
 private:
 	GLvoid ResizeGL(GLsizei w, GLsizei h);
 	GLint InitGL(GLvoid);
@@ -27,9 +28,6 @@ public:
 	BOOL CreateGLWinodow(char *Title, int Width, int Height, HWND Parent_hWnd);
 
 private:
-	struct HUD_DATA
-	{
-		float a;
-	}HUD_Data;
+	
 
 };
