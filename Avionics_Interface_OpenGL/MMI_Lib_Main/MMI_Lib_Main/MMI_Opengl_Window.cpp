@@ -18,7 +18,7 @@ void MMI_OPENGL_WINDOW::Update()
 
 	//MMI_OPENGL_HUD::HUD_Data.alpha = 10*sin(this->GUI_Test);
 	//MMI_OPENGL_HUD::HUD_Data.beta = 10*cos(this->GUI_Test);
-	/*
+	
 	MMI_OPENGL_HUD::HUD_Data.theta = 20*sin(this->GUI_Test);
 	MMI_OPENGL_HUD::HUD_Data.phi = 20*sin(this->GUI_Test);
 	MMI_OPENGL_HUD::HUD_Data.TAS = 10*sin(this->GUI_Test)+10;
@@ -29,7 +29,7 @@ void MMI_OPENGL_WINDOW::Update()
 	MMI_OPENGL_HUD::HUD_Data.GCS_Bearing = 180*cos(this->GUI_Test)+180;
 	MMI_OPENGL_HUD::HUD_Data.GCS_Deviation = 500*cos(this->GUI_Test)+500;
 	MMI_OPENGL_HUD::HUD_Data.Wind_Bearing = -180*sin(this->GUI_Test)+180;
-	MMI_OPENGL_HUD::HUD_Data.Power_cmd = 50*sin(this->GUI_Test)+50;*/
+	MMI_OPENGL_HUD::HUD_Data.Power_cmd = 50*sin(this->GUI_Test)+50;
 }
 
 GLvoid MMI_OPENGL_WINDOW::ResizeGL(GLsizei w, GLsizei h)
