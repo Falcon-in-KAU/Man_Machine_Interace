@@ -5,7 +5,31 @@ MMI_OPENGL_WINDOW* MMI_OPENGL_WINDOW::_This;
 
 MMI_OPENGL_WINDOW::MMI_OPENGL_WINDOW():MMI_OPENGL_HUD()
 {
-	
+	this->GUI_Test = 0;
+}
+
+void MMI_OPENGL_WINDOW::Update()
+{
+	this->GUI_Test = this->GUI_Test + 0.01;
+	if(this->GUI_Test>50)
+	{
+		this->GUI_Test = 0;
+	}
+
+	//MMI_OPENGL_HUD::HUD_Data.alpha = 10*sin(this->GUI_Test);
+	//MMI_OPENGL_HUD::HUD_Data.beta = 10*cos(this->GUI_Test);
+	/*
+	MMI_OPENGL_HUD::HUD_Data.theta = 20*sin(this->GUI_Test);
+	MMI_OPENGL_HUD::HUD_Data.phi = 20*sin(this->GUI_Test);
+	MMI_OPENGL_HUD::HUD_Data.TAS = 10*sin(this->GUI_Test)+10;
+	MMI_OPENGL_HUD::HUD_Data.GS = 10*sin(this->GUI_Test)+10;
+	MMI_OPENGL_HUD::HUD_Data.Altitude = 100*sin(this->GUI_Test)+100;
+	MMI_OPENGL_HUD::HUD_Data.Heading = 180*sin(this->GUI_Test)+180;
+	MMI_OPENGL_HUD::HUD_Data.RPM = 3000*sin(this->GUI_Test)+3000;
+	MMI_OPENGL_HUD::HUD_Data.GCS_Bearing = 180*cos(this->GUI_Test)+180;
+	MMI_OPENGL_HUD::HUD_Data.GCS_Deviation = 500*cos(this->GUI_Test)+500;
+	MMI_OPENGL_HUD::HUD_Data.Wind_Bearing = -180*sin(this->GUI_Test)+180;
+	MMI_OPENGL_HUD::HUD_Data.Power_cmd = 50*sin(this->GUI_Test)+50;*/
 }
 
 GLvoid MMI_OPENGL_WINDOW::ResizeGL(GLsizei w, GLsizei h)
@@ -44,12 +68,35 @@ int MMI_OPENGL_WINDOW::DrawGL()//DATA_POSITION *Position,DATA_ATTITUDES *Attitud
 	glMatrixMode(GL_MODELVIEW); //Switch to the drawing perspective
 	glLoadIdentity(); //Reset the drawing perspective
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glScalef(0.35,0.35,0.35);
+	glScalef(0.3,0.3,0.3);
 	glTranslatef(0,0,0);
 	glPushMatrix();
-	MMI_OPENGL_HUD::drawGunCross(0,0,0.05,0.05*WINDOW_SIZE_X/WINDOW_SIZE_Y);
+	glColor3f(0,1,0);
+	float translate_x = 0;
+	float translate_y = 1;
+	MMI_OPENGL_HUD::drawGround(translate_x,translate_y,0.1,0.1*WINDOW_SIZE_X/WINDOW_SIZE_Y);
+	MMI_OPENGL_HUD::drawPitchLadder(translate_x,translate_y,0.1,0.1*WINDOW_SIZE_X/WINDOW_SIZE_Y);
+	MMI_OPENGL_HUD::drawSpeedLadder(translate_x,translate_y,0.1*WINDOW_SIZE_X,0.1*WINDOW_SIZE_X/WINDOW_SIZE_Y);
+	MMI_OPENGL_HUD::drawAltLadder(translate_x,translate_y,0.1*WINDOW_SIZE_X,0.1*WINDOW_SIZE_X/WINDOW_SIZE_Y);
+	MMI_OPENGL_HUD::drawRollIndicator(translate_x,translate_y,0.1,0.1*WINDOW_SIZE_X/WINDOW_SIZE_Y);
 
-	
+	MMI_OPENGL_HUD::drawGunCross(translate_x,translate_y,0.05,0.05*WINDOW_SIZE_X/WINDOW_SIZE_Y);
+	//MMI_OPENGL_HUD::drawFlightPathMarker(translate_x,translate_y,0.1,0.1*WINDOW_SIZE_X/WINDOW_SIZE_Y);
+	MMI_OPENGL_HUD::drawHeadingMarker(translate_x,translate_y,0.1,0.1*WINDOW_SIZE_X/WINDOW_SIZE_Y);
+	MMI_OPENGL_HUD::drawGroundSpeed(translate_x,translate_y,0.1,0.1*WINDOW_SIZE_X/WINDOW_SIZE_Y);
+	MMI_OPENGL_HUD::drawVerticalSpd(translate_x,translate_y,0.1,0.1*WINDOW_SIZE_X/WINDOW_SIZE_Y);
+	MMI_OPENGL_HUD::drawSpeedCmd(translate_x,translate_y,0.1,0.1*WINDOW_SIZE_X/WINDOW_SIZE_Y);
+	MMI_OPENGL_HUD::drawAltCmd(translate_x,translate_y,0.1,0.1*WINDOW_SIZE_X/WINDOW_SIZE_Y);
+	MMI_OPENGL_HUD::drawHeading(translate_x,translate_y,0.1,0.1*WINDOW_SIZE_X/WINDOW_SIZE_Y);
+	MMI_OPENGL_HUD::drawLLA(translate_x,translate_y,0.1,0.1*WINDOW_SIZE_X/WINDOW_SIZE_Y);
+	MMI_OPENGL_HUD::drawUTC(translate_x,translate_y,0.1,0.1*WINDOW_SIZE_X/WINDOW_SIZE_Y);
+	MMI_OPENGL_HUD::drawGPSStatus(translate_x,translate_y,0.1,0.1*WINDOW_SIZE_X/WINDOW_SIZE_Y);
+	MMI_OPENGL_HUD::drawFCCStatus(translate_x,translate_y,0.1,0.1*WINDOW_SIZE_X/WINDOW_SIZE_Y);
+
+	MMI_OPENGL_HUD::drawRPMIndicator(translate_x,translate_y,0.1,0.1*WINDOW_SIZE_X/WINDOW_SIZE_Y);
+	MMI_OPENGL_HUD::drawPowerIndicator(translate_x,translate_y,0.1,0.1*WINDOW_SIZE_X/WINDOW_SIZE_Y);
+	MMI_OPENGL_HUD::drawGCSIndicator(translate_x,translate_y,0.1,0.1*WINDOW_SIZE_X/WINDOW_SIZE_Y);
+	MMI_OPENGL_HUD::drawWindIndicator(translate_x,translate_y,0.1,0.1*WINDOW_SIZE_X/WINDOW_SIZE_Y);
 	glPopMatrix();
 	return 0;
 }
@@ -86,14 +133,12 @@ LRESULT CALLBACK MMI_OPENGL_WINDOW::OPENGL_WndProc(HWND hWnd, UINT message, WPAR
 		switch(wParam)
 		{
 			case OPENGL_TIMER:
-			
-			
+			MMI_OpenGL_Window.Update();
 			if(MMI_OpenGL_Window.OPENGL_hRC = wglCreateContext(MMI_OpenGL_Window.OPENGL_hDC))
 			{
 				if(wglMakeCurrent(MMI_OpenGL_Window.OPENGL_hDC,MMI_OpenGL_Window.OPENGL_hRC))
 				{
 					MMI_OpenGL_Window.DrawGL();
-
 					SwapBuffers(MMI_OpenGL_Window.OPENGL_hDC);
 				}
 			}
@@ -115,6 +160,7 @@ LRESULT CALLBACK MMI_OPENGL_WINDOW::OPENGL_WndProc(HWND hWnd, UINT message, WPAR
 		// TODO: 여기에 그리기 코드를 추가합니다.
 
 		EndPaint(hWnd, &ps);
+		//SendMessage(hWnd,WM_TIMER,OPENGL_TIMER,0);
 		break;
 	case WM_DESTROY:
 		PostQuitMessage(0);

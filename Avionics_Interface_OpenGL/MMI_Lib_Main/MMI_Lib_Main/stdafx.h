@@ -29,6 +29,9 @@
 #include "MMI_Opengl_Window.h"
 //#include "MMI_Opengl_HUD.h"
 
-#define WINDOW_SIZE_X	1366
-#define WINDOW_SIZE_Y	768
+#define WINDOW_SIZE_X	600
+#define WINDOW_SIZE_Y	700
+
+#define R2D		57.2957795
+#define D2R		0.0174532925
 // TODO: 프로그램에 필요한 추가 헤더는 여기에서 참조합니다.

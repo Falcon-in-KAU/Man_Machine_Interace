@@ -18,16 +18,15 @@ private :
 	static LRESULT CALLBACK OPENGL_WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam, void *Callback);
 	static MMI_OPENGL_WINDOW *_This;
 	
-private:
+public:
 	GLvoid ResizeGL(GLsizei w, GLsizei h);
 	GLint InitGL(GLvoid);
-public:
 	int DrawGL();//DATA_POSITION *Position,DATA_ATTITUDES *Attitudes, DATA_CTRL *Control,DATA_SPEED *Speed, DATA_MODE *Mode, DATA_EQUIP *Equip, DATA_STATUS *Status);
 public:
-
+	void Update();
 	BOOL CreateGLWinodow(char *Title, int Width, int Height, HWND Parent_hWnd);
 
 private:
-	
+	double GUI_Test;
 
 };
