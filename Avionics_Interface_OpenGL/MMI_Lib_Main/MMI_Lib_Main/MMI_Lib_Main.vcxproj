@@ -83,6 +83,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Avionics.h" />
+    <ClInclude Include="MMI_Google_Earth.h" />
+    <ClInclude Include="MMI_Google_Earth_Control.h" />
+    <ClInclude Include="MMI_Google_Earth_Window.h" />
     <ClInclude Include="MMI_Lib_Main.h" />
     <ClInclude Include="MMI_Opengl_HUD.h" />
     <ClInclude Include="MMI_Opengl_Window.h" />
@@ -91,6 +94,9 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MMI_Google_Earth.cpp" />
+    <ClCompile Include="MMI_Google_Earth_Control.cpp" />
+    <ClCompile Include="MMI_Google_Earth_Window.cpp" />
     <ClCompile Include="MMI_Lib_Main.cpp" />
     <ClCompile Include="MMI_Opengl_HUD.cpp" />
     <ClCompile Include="MMI_Opengl_Window.cpp" />

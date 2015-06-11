@@ -10,7 +10,8 @@ void MMI_OPENGL_HUD::drawGunCross(float x, float y, float ScaleX, float ScaleY)
 	glPushMatrix();
 	glTranslatef(x,y,0);
 	glScalef(ScaleX*2.5, ScaleY*2.5, 1);
-	glBegin(GL_LINE_STRIP);
+	glColor3f(255,255,0);
+	/*glBegin(GL_LINE_STRIP);
 	    glVertex3f(-1.3f,  0.0f, 0);
 	    glVertex3f(-1.0f,  0.0f, 0);		
 	    glVertex3f(-0.5f, -0.5f, 0);		
@@ -18,8 +19,20 @@ void MMI_OPENGL_HUD::drawGunCross(float x, float y, float ScaleX, float ScaleY)
 	    glVertex3f( 0.5f, -0.5f, 0);		
 	    glVertex3f( 1.0f,  0.0f, 0);		
 	    glVertex3f( 1.3f,  0.0f, 0);
+	glEnd();*/
+	glBegin(GL_POLYGON);
+	    glVertex3f(-3.3f,  -1.5f, 0);
+	    glVertex3f(-2.0f,  -1.5f, 0);		
+	    glVertex3f(0.0f, 0.0f, 0);		
+	    
 	glEnd();
-
+	glBegin(GL_POLYGON);
+	    glVertex3f(3.3f,  -1.5f, 0);
+	    glVertex3f(2.0f,  -1.5f, 0);		
+	    glVertex3f(0.0f, 0.0f, 0);		
+	    
+	glEnd();
+	glColor3f(0,255,0);
 	glPopMatrix();
 	
 }
@@ -201,7 +214,20 @@ void MMI_OPENGL_HUD::drawPitchLadder(float x, float y, float ScaleX, float Scale
 			glVertex3f(0.8*3,10*cnt,0);
 
 			glEnd();
-			
+			glColor3f(0,191,255);
+			glBegin(GL_POLYGON);
+				glVertex3f(-6.3f,  -1.5f, 0);
+				glVertex3f(-3.5f,  -1.5f, 0);		
+				glVertex3f(0.0f, 0.0f, 0);		
+	    
+			glEnd();
+			glBegin(GL_POLYGON);
+				glVertex3f(6.3f,  -1.5f, 0);
+				glVertex3f(3.5f,  -1.5f, 0);		
+				glVertex3f(0.0f, 0.0f, 0);		
+	    
+			glEnd();
+			glColor3f(0,255,0);
 			//sprintf(string,"%.1f",(cnt-this->HUD_Data.theta)*2.5);
 			//glRasterPos3f(-12.5*0.85, cnt*10, 0);
 			sprintf(string,"%.0f",(cnt)*Ladder_Unit);

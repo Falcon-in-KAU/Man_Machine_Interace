@@ -25,8 +25,12 @@
 #include <glut.h>
 #include <math.h>
 
+#include <atlstr.h>						//for using CString
+
 #include "Avionics.h"
 #include "MMI_Opengl_Window.h"
+#include "MMI_Google_Earth_Window.h"
+
 //#include "MMI_Opengl_HUD.h"
 
 #define WINDOW_SIZE_X	600
